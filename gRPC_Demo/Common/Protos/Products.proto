@@ -1,0 +1,22 @@
+﻿syntax = "proto3";
+service ProductService {
+  rpc Get (ProductRequest) returns (Product);
+  rpc GetAll (None) returns (AllProducts);
+  rpc Add (Product) returns (BoolMessage);
+  rpc Remove (ProductRequest) returns (BoolMessage);
+}
+message BoolMessage{
+	bool success = 1;
+}
+message None {
+
+}
+message ProductRequest {
+  string name = 1;
+}
+message Product {
+	string name = 2;
+}
+message AllProducts {
+  repeated Product list = 1;
+}
